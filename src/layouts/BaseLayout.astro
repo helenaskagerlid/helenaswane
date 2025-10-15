@@ -1,6 +1,6 @@
 ---
-import "../styles/global.css";
 import Header from "../components/Header.astro";
+import "normalize.css";
 ---
 
 <!doctype html>
@@ -26,7 +26,23 @@ import Header from "../components/Header.astro";
   </body>
 </html>
 
-<style>
+<style is:global>
+  :root {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    background-image: linear-gradient(#38263f, #73647c);
+    color: azure;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   html,
   body {
     margin: 0;
@@ -45,5 +61,15 @@ import Header from "../components/Header.astro";
 
   html {
     scroll-behavior: smooth;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 </style>
