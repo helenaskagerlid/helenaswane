@@ -6,9 +6,9 @@
       135deg,
       #ff758c 0%,
       #ff7eb3 25%,
-      #fad0c4 50%,
+      #752c18 50%,
       #fcb69f 75%,
-      #ff9a9e 100%
+      #2f962b 100%
     );
   }
 
@@ -21,8 +21,8 @@
     background: var(--gradient);
     background-size: 400%;
     animation:
-      bg-animation 15s infinite alternate ease-in-out,
-      blob-morph 25s infinite alternate ease-in-out;
+      bg-animation 10s infinite alternate,
+      blob-morph 10s infinite alternate;
     border-radius: 45% 55% 60% 40% / 55% 45% 65% 35%;
     filter: blur(30px) brightness(1.2);
     opacity: 0.35;
@@ -40,6 +40,7 @@
 
   @keyframes blob-morph {
     0% {
+      background-position: left;
       border-radius: 45% 55% 60% 40% / 55% 45% 65% 35%;
       transform: scale(1);
     }
@@ -50,6 +51,7 @@
     100% {
       border-radius: 40% 60% 70% 30% / 45% 55% 50% 60%;
       transform: scale(1.03);
+      background-position: right;
     }
   }
 </style>
