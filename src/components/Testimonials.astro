@@ -2,71 +2,148 @@
   <div class="testimonial-wrapper section-inner">
     <h2 class="testimonial-heading">Testimonials</h2>
 
-    <section class="container">
-      <div class="slider-wrapper">
-        <div class="slider" aria-label="Testimonials">
-          <div id="slide-1" class="testimonial" tabindex="0">
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-            corrupti nesciunt, doloremque maiores beatae et amet. Harum iusto
-            fuga, atque vitae ipsa eos dolorem nam enim veritatis non, officia
-            hic?"
-          </div>
-          <div id="slide-2" class="testimonial" tabindex="0">
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-            corrupti nesciunt, doloremque maiores beatae et amet. Harum iusto
-            fuga, atque vitae ipsa eos dolorem nam enim veritatis non, officia
-            hic?
-          </div>
-          <div id="slide-3" class="testimonial" tabindex="0">
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-            corrupti nesciunt, doloremque maiores beatae et amet. Harum iusto
-            fuga, atque vitae ipsa eos dolorem nam enim veritatis non, officia
-            hic?
-          </div>
-        </div>
-        <div class="slider-nav">
-          <a aria-label="Gå till första testimonialen" href="#slide-1"></a>
-          <a aria-label="Gå till andra testimonialen" href="#slide-2"></a>
-          <a aria-label="Gå till tredje testimonialen" href="#slide-3"></a>
-        </div>
+    <div class="testimonial-content">
+      <div class="image-wrapper">
+        <svg
+          class="svg-img"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient
+              id="blobGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stop-color="#fde2e4">
+                <animate
+                  attributeName="stop-color"
+                  values="#fde2e4;#fad2e1;#fbc4ab;#ffb3c1;#ffcfd2;#fde2e4"
+                  dur="15s"
+                  repeatCount="indefinite"></animate>
+              </stop>
+              <stop offset="100%" stop-color="#ffcfd2">
+                <animate
+                  attributeName="stop-color"
+                  values="#ffe5b4;#ffd1a4;#ffb07c;#f9a66c;#f6c77d;"
+                  dur="15s"
+                  repeatCount="indefinite"></animate>
+              </stop>
+            </linearGradient>
+          </defs>
+
+          <path
+            fill="url(#blobGradient)"
+            d="M48.1,-71.5C62.4,-65.7,73.9,-52.4,79.9,-37.1C85.8,-21.9,86.1,-4.7,80.6,9.3C75.1,23.4,63.8,34.4,53.3,45.9C42.9,57.5,33.4,69.5,21.4,73.3C9.3,77.1,-5.4,72.7,-20.8,69C-36.2,65.3,-52.4,62.4,-59.6,52.5C-66.8,42.7,-65.1,25.9,-65.1,10.7C-65.1,-4.4,-66.9,-17.9,-62.1,-28.3C-57.3,-38.7,-45.8,-46,-34.3,-53.1C-22.9,-60.2,-11.4,-67.1,2.8,-71.4C16.9,-75.7,33.9,-77.4,48.1,-71.5Z"
+            transform="translate(100 100)"></path>
+        </svg>
+
+        <img src="/testimonialimg.jpg" alt="" class="testimonial-img" />
       </div>
-    </section>
+      <section class="container">
+        <div class="slider-wrapper">
+          <div class="slider" aria-label="Testimonials">
+            <div id="slide-1" class="testimonial" tabindex="0">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo,
+              maxime ratione minus quae consectetur vel perferendis a in, id
+              nisi dolorem laboriosam at provident voluptatum aspernatur
+              tenetur, ipsam deserunt error laborum vero pariatur iste? Unde
+              dolores repudiandae quae rem quod. Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Quo, maxime ratione minus quae
+              consectetur vel perferendis a in, id nisi dolorem laboriosam at
+              provident voluptatum aspernatur tenetur, ipsam deserunt
+            </div>
+            <div id="slide-2" class="testimonial" tabindex="0">
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+            </div>
+            <div id="slide-3" class="testimonial" tabindex="0">
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+            </div>
+          </div>
+
+          <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
 </section>
 
 <style>
-  .testimonial-section {
-    padding-block: 80px;
+  :root {
+    --gradient: linear-gradient(
+      135deg,
+      #ffe5b4 0%,
+      #ffd1a4 25%,
+      #ffb07c 50%,
+      #f9a66c 75%,
+      #f6c77d 100%
+    );
+  }
+
+  .gradient-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-    height: 500px;
-    background: linear-gradient(
+    height: 100vh;
+    background-image: var(--gradient);
+    background-size: 400%;
+    animation: bg-animation 25s infinite alternate;
+  }
+
+  @keyframes bg-animation {
+    0% {
+      background-position: left;
+    }
+    100% {
+      background-position: right;
+    }
+  }
+
+  .testimonial-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    /* background: linear-gradient(
         to bottom,
         #faf6f1 0%,
         rgba(250, 246, 241, 0) 20%
       ),
-      url("/pinkbackground.jpg");
-    background-size: cover;
+      url("/pinkbackground.jpg"); */
+    /* background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    padding-block: 120px;
+    background-repeat: no-repeat; */
+    background-color: #faf6f1;
+    padding-top: 80px;
+    padding-bottom: 160px;
   }
 
   .testimonial-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    margin: 0;
   }
 
   .testimonial-heading {
     font-size: 3rem;
-    font-weight: 400;
-    color: #2b2929;
+    color: rgb(90, 87, 87);
+    /* background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    margin: 0;
   }
 
   .testimonial {
-    width: 250px;
-    height: 300px;
+    width: 300px;
+    height: 350px;
     border-radius: 8px;
     background-color: #faf6f1;
     color: black;
@@ -75,11 +152,46 @@
     font-style: italic;
   }
 
+  .container {
+    display: flex;
+  }
+
   .slider-wrapper {
     position: relative;
-    max-width: 290px;
-    height: 300px;
+    max-width: 340px;
+    height: 350px;
     margin: 0 auto;
+  }
+
+  .testimonial-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 540px;
+    height: 400px;
+  }
+
+  .svg-img {
+    position: absolute;
+    height: 550px;
+    width: 540px;
+    top: -10%;
+    left: -37%;
+  }
+
+  .testimonial-img {
+    position: absolute;
+    left: 10%;
+    top: 11.5%;
+    height: 330px;
+    width: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
   }
 
   .slider {
@@ -121,4 +233,9 @@
     outline: 2px solid #2b2929;
     outline-offset: 3px;
   }
+
+  /* .testimonial-img {
+    height: 400px;
+    width: 300px;
+  } */
 </style>
