@@ -1,37 +1,61 @@
 ---
 import StarAnimation from "../animations/StarAnimation.astro";
 import GlitterAnimation from "../animations/GlitterAnimation.astro";
+import FloatingCircles from "../animations/FloatingCircles.astro";
 ---
 
-<div id="home" class="glitter_wrap">
-  <GlitterAnimation />
+<div id="home" class="wrapper">
+  <!-- <FloatingCircles /> -->
   <StarAnimation />
 
   <h1 class="heading">Redo för förändring?</h1>
 </div>
 
 <style>
-  .glitter_wrap {
+  :root {
+    --gradient: linear-gradient(
+      135deg,
+      #fde2e4 0%,
+      #fad2e1 25%,
+      #fbc4ab 50%,
+      #ffb3c1 75%,
+      #ffcfd2 100%
+    );
+  }
+
+  .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
-    background-color: #faf6f1;
-    background-size: cover;
-    background-position: center bottom;
+    /* background-color: #faf6f1; */
+    /* background-size: cover;
+    background-position: center bottom; */
+    background: linear-gradient(
+        to bottom,
+        #faf6f1 0%,
+        rgba(250, 246, 241, 0) 35%
+      ),
+      url("/testbackground2.png");
     position: relative;
     overflow: hidden;
   }
 
   h1 {
-    font-family: "Montserrat", sans-serif;
+    /* margin-top: 100px; */
+    font-family: "Raleway", sans-serif;
     font-size: clamp(3rem, 9vw, 4rem);
-    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(93, 92, 92, 0.6);
+
     align-self: center;
-    color: rgb(82, 79, 79);
-    /* text-transform: uppercase; */
+    color: #faf6f1;
+    /* background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    text-transform: uppercase;
     letter-spacing: 2px;
     padding-right: 160px;
+    z-index: 3;
   }
 </style>
