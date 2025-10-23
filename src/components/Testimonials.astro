@@ -1,3 +1,7 @@
+---
+import GlowingBorder from "../animations/GlowingBorder.astro";
+---
+
 <section class="testimonial-section" id="testimonials">
   <div class="testimonial-wrapper section-inner">
     <h2 class="testimonial-heading">Testimonials</h2>
@@ -42,7 +46,7 @@
 
         <img src="/testimonialimg.jpg" alt="" class="testimonial-img" />
       </div>
-      <div class="glowing-border">
+      <GlowingBorder borderSide="right">
         <section class="container">
           <div class="slider-wrapper">
             <div class="slider" aria-label="Testimonials">
@@ -70,7 +74,7 @@
             </div>
           </div>
         </section>
-      </div>
+      </GlowingBorder>
     </div>
   </div>
 </section>
@@ -105,47 +109,6 @@
     100% {
       background-position: right;
     }
-  }
-
-  .glowing-border {
-    --gradient-glow: rgb(240, 194, 165);
-    margin-block: 3rem;
-    padding: 5rem 4rem;
-    max-width: 60ch;
-
-    border: 3px solid transparent;
-    border-radius: 100vw 0 0 100vw;
-    border-right: 0;
-    background:
-      linear-gradient(#faf6f1 0 0) padding-box,
-      conic-gradient(var(--gradient-glow)) border-box;
-
-    position: relative;
-    isolation: isolate;
-  }
-
-  .glowing-border::before,
-  .glowing-border::after {
-    content: "";
-    position: absolute;
-    border-radius: inherit;
-  }
-
-  .glowing-border::after {
-    background: conic-gradient(var(--gradient-glow));
-    inset: -1rem;
-    z-index: -2;
-    filter: blur(3rem);
-    opacity: 0.5;
-  }
-
-  .glowing-border::before {
-    background: #faf6f1;
-    inset: 1rem;
-    scale: 1.2 1;
-    transform-origin: left;
-    z-index: -1;
-    filter: blur(2rem);
   }
 
   .section-inner {
