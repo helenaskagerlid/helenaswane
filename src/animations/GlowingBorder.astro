@@ -1,0 +1,76 @@
+---
+const { borderSide = "right" } = Astro.props;
+---
+
+<div class={`glowing-border ${borderSide}`}>
+  <slot />
+</div>
+
+
+<style>
+
+  .glowing-border {
+    --gradient-glow: 
+    rgb(255, 229, 208),
+    rgb(255, 204, 178),
+    rgb(250, 190, 150),
+    rgb(245, 170, 140),
+    rgb(240, 180, 165),
+    rgb(255, 214, 186);
+    --glow-intensity
+    margin-block: 3rem;
+    padding: 5rem 4rem;
+    max-width: 60ch;
+    border: var(--border-width, 3px) solid transparent;
+    border-radius: 100vw 0 0 100vw;
+    border-right: 0;
+    background:
+      linear-gradient(#faf6f1 0 0) padding-box,
+      conic-gradient(var(--gradient-glow)) border-box;
+
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glowing-border.right {
+  margin-inline-start: auto;
+  border-radius: 100vw 0 0 100vw;
+  border-right: 0;
+}
+
+  .glowing-border.left {
+    margin-inline-end: auto;
+    border-radius: 0 100vw 100vw 0;
+    border-left: 0;
+
+    &::before {
+        transform-origin: right;
+    }
+  }
+
+  .glowing-border::before,
+  .glowing-border::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+  }
+
+  .glowing-border::before {
+    background: #faf6f1;
+    inset: 1rem;
+    scale: 1.2 1;
+    transform-origin: left;
+    z-index: -1;
+    filter: blur(var(--glow-size, 1rem));
+  }
+
+  .glowing-border::after {
+    background: conic-gradient(var(--gradient-glow));
+    inset: -1rem;
+    z-index: -2;
+    filter: blur(var(--glow-size, 3rem));
+    opacity: var(--glow-intensity, 0.2);
+  }
+
+
+</style>
