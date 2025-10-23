@@ -20,15 +20,15 @@
               <stop offset="0%" stop-color="#fde2e4">
                 <animate
                   attributeName="stop-color"
-                  values="#fde2e4;#fad2e1;#fbc4ab;#ffb3c1;#ffcfd2;#fde2e4"
-                  dur="15s"
+                  values="#fde2e4;#fad2e1;#fbc4ab;#ffcfd2;#fde2e4;#ffb3c1;#fbc4ab;#fad2e1;#fde2e4"
+                  dur="35s"
                   repeatCount="indefinite"></animate>
               </stop>
               <stop offset="100%" stop-color="#ffcfd2">
                 <animate
                   attributeName="stop-color"
-                  values="#ffe5b4;#ffd1a4;#ffb07c;#f9a66c;#f6c77d;"
-                  dur="15s"
+                  values="#ffe5b4;#ffd1a4;#ffb07c;#f9a66c;#f6c77d;#ffd1a4;#ffe5b4"
+                  dur="35s"
                   repeatCount="indefinite"></animate>
               </stop>
             </linearGradient>
@@ -42,34 +42,35 @@
 
         <img src="/testimonialimg.jpg" alt="" class="testimonial-img" />
       </div>
-      <section class="container">
-        <div class="slider-wrapper">
-          <div class="slider" aria-label="Testimonials">
-            <div id="slide-1" class="testimonial" tabindex="0">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo,
-              maxime ratione minus quae consectetur vel perferendis a in, id
-              nisi dolorem laboriosam at provident voluptatum aspernatur
-              tenetur, ipsam deserunt error laborum vero pariatur iste? Unde
-              dolores repudiandae quae rem quod. Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit. Quo, maxime ratione minus quae
-              consectetur vel perferendis a in, id nisi dolorem laboriosam at
-              provident voluptatum aspernatur tenetur, ipsam deserunt
+      <div class="glowing-border">
+        <section class="container">
+          <div class="slider-wrapper">
+            <div class="slider" aria-label="Testimonials">
+              <div id="slide-1" class="testimonial" tabindex="0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo,
+                maxime ratione minus quae consectetur vel perferendis a in, id
+                nisi dolorem laboriosam at provident voluptatum aspernatur
+                tenetur, ipsam deserunt error laborum vero pariatur iste? Unde
+                dolores repudiandae quae rem quod. Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Quo, maxime ratione minus quae
+                consectetur vel perferendis a in, id nisi dolorem laboriosam at
+                provident voluptatum aspernatur tenetur, ipsam deserunt
+              </div>
+              <div id="slide-2" class="testimonial" tabindex="0">
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+              </div>
+              <div id="slide-3" class="testimonial" tabindex="0">
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+              </div>
             </div>
-            <div id="slide-2" class="testimonial" tabindex="0">
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
-            </div>
-            <div id="slide-3" class="testimonial" tabindex="0">
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+            <div class="slider-nav">
+              <a href="#slide-1"></a>
+              <a href="#slide-2"></a>
+              <a href="#slide-3"></a>
             </div>
           </div>
-
-          <div class="slider-nav">
-            <a href="#slide-1"></a>
-            <a href="#slide-2"></a>
-            <a href="#slide-3"></a>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </div>
 </section>
@@ -88,7 +89,7 @@
 
   .gradient-background {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -106,10 +107,55 @@
     }
   }
 
+  .glowing-border {
+    --gradient-glow: rgb(240, 194, 165);
+    margin-block: 3rem;
+    padding: 5rem 4rem;
+    max-width: 60ch;
+
+    border: 3px solid transparent;
+    border-radius: 100vw 0 0 100vw;
+    border-right: 0;
+    background:
+      linear-gradient(#faf6f1 0 0) padding-box,
+      conic-gradient(var(--gradient-glow)) border-box;
+
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glowing-border::before,
+  .glowing-border::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+  }
+
+  .glowing-border::after {
+    background: conic-gradient(var(--gradient-glow));
+    inset: -1rem;
+    z-index: -2;
+    filter: blur(3rem);
+    opacity: 0.5;
+  }
+
+  .glowing-border::before {
+    background: #faf6f1;
+    inset: 1rem;
+    scale: 1.2 1;
+    transform-origin: left;
+    z-index: -1;
+    filter: blur(2rem);
+  }
+
+  .section-inner {
+    padding: 0;
+  }
+
   .testimonial-section {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     width: 100vw;
     /* background: linear-gradient(
         to bottom,
@@ -128,39 +174,48 @@
   .testimonial-wrapper {
     display: flex;
     flex-direction: column;
-
     margin: 0;
   }
 
   .testimonial-heading {
     font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
     color: rgb(90, 87, 87);
+    align-self: flex-end;
+    padding-right: 150px;
+    margin-bottom: 0;
     /* background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
-    margin: 0;
   }
 
   .testimonial {
-    width: 300px;
-    height: 350px;
-    border-radius: 8px;
+    width: 550px;
+    height: 200px;
+    border-radius: 20px;
     background-color: #faf6f1;
     color: black;
     font-family: "Raleway", sans-serif;
-    padding: 20px;
+    margin-top: 30px;
+    margin-left: 60px;
+    padding-left: 10px;
+    /* padding: 30px; */
     font-style: italic;
   }
 
   .container {
     display: flex;
+    padding-bottom: 30px;
+    padding-left: 20px;
   }
 
   .slider-wrapper {
     position: relative;
-    max-width: 340px;
-    height: 350px;
+    max-width: 610px;
+    height: 220px;
     margin: 0 auto;
+    border-radius: 20px;
   }
 
   .testimonial-content {
@@ -173,14 +228,15 @@
     position: relative;
     width: 540px;
     height: 400px;
+    padding-bottom: 50px;
   }
 
   .svg-img {
     position: absolute;
     height: 550px;
     width: 540px;
-    top: -10%;
-    left: -37%;
+    top: -7.5%;
+    left: -26%;
   }
 
   .testimonial-img {
@@ -200,7 +256,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    /* box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25); */
   }
 
   .slider div {
@@ -220,7 +276,7 @@
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: #ffff;
+    background-color: rgb(240, 194, 165);
     opacity: 0.75;
     transition: opacity ease 250ms;
   }
@@ -230,7 +286,7 @@
   }
 
   .slider-nav a:focus {
-    outline: 2px solid #2b2929;
+    outline: 2px solid rgb(240, 194, 165);
     outline-offset: 3px;
   }
 
