@@ -2,9 +2,14 @@
 import StarAnimation from "../animations/StarAnimation.astro";
 import GlitterAnimation from "../animations/GlitterAnimation.astro";
 import FloatingCircles from "../animations/FloatingCircles.astro";
+import BackgroundImage from "../assets/testbackground2.png";
 ---
 
-<div id="home" class="wrapper">
+<div
+  id="home"
+  class="wrapper"
+  style={`background-image: linear-gradient(to bottom, #faf6f1 0%, rgba(250, 246, 241, 0) 35%), url(${BackgroundImage.src});`}
+>
   <!-- <FloatingCircles /> -->
   <StarAnimation />
 
