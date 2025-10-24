@@ -46,40 +46,48 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
 
         <img src="/testimonialimg.jpg" alt="" class="testimonial-img" />
       </div>
-      <GlowingBorder borderSide="right">
-        <section class="container">
-          <div class="slider-wrapper">
-            <div class="slider" aria-label="Testimonials">
-              <div id="slide-1" class="testimonial" tabindex="0">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo,
-                maxime ratione minus quae consectetur vel perferendis a in, id
-                nisi dolorem laboriosam at provident voluptatum aspernatur
-                tenetur, ipsam deserunt error laborum vero pariatur iste? Unde
-                dolores repudiandae quae rem quod. Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Quo, maxime ratione minus quae
-                consectetur vel perferendis a in, id nisi dolorem laboriosam at
-                provident voluptatum aspernatur tenetur, ipsam deserunt
+      <div class="glowing-border-container">
+        <GlowingBorder borderSide="right">
+          <section class="container">
+            <div class="slider-wrapper">
+              <div class="slider" aria-label="Testimonials">
+                <div id="slide-1" class="testimonial" tabindex="0">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo,
+                  maxime ratione minus quae consectetur vel perferendis a in, id
+                  nisi dolorem laboriosam at provident voluptatum aspernatur
+                  tenetur, ipsam deserunt error laborum vero pariatur iste? Unde
+                  dolores repudiandae quae rem quod. Lorem ipsum dolor sit amet
+                  consectetur, adipisicing elit. Quo, maxime ratione minus quae
+                  consectetur vel perferendis a in, id nisi dolorem laboriosam
+                  at provident voluptatum aspernatur tenetur, ipsam deserunt
+                </div>
+                <div id="slide-2" class="testimonial" tabindex="0">
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+                </div>
+                <div id="slide-3" class="testimonial" tabindex="0">
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+                </div>
               </div>
-              <div id="slide-2" class="testimonial" tabindex="0">
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
-              </div>
-              <div id="slide-3" class="testimonial" tabindex="0">
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+              <div class="slider-nav">
+                <a href="#slide-1"></a>
+                <a href="#slide-2"></a>
+                <a href="#slide-3"></a>
               </div>
             </div>
-            <div class="slider-nav">
-              <a href="#slide-1"></a>
-              <a href="#slide-2"></a>
-              <a href="#slide-3"></a>
-            </div>
-          </div>
-        </section>
-      </GlowingBorder>
+          </section>
+        </GlowingBorder>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
+  .glowing-border-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
   :root {
     --gradient: linear-gradient(
       135deg,
@@ -189,7 +197,7 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
 
   .image-wrapper {
     position: relative;
-    width: 540px;
+    width: 680px;
     height: 400px;
     padding-bottom: 50px;
   }
@@ -211,6 +219,67 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     border-radius: 50%;
     object-fit: cover;
     z-index: 2;
+  }
+
+  @media (max-width: 1300px) {
+    .testimonial-content {
+      width: 100vw;
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 540;
+      height: 550;
+      padding-bottom: 50px;
+    }
+
+    .svg-img {
+      height: 550px;
+      width: 540px;
+      top: -16.5%;
+      left: -20%;
+    }
+
+    .testimonial-img {
+      left: 15%;
+      top: 4%;
+      height: 320px;
+      width: 310px;
+    }
+  }
+
+  @media (max-width: 1180px) {
+    .testimonial-content {
+      flex-direction: column;
+    }
+
+    .svg-img {
+      top: -16.5%;
+      left: 0%;
+    }
+
+    .testimonial-img {
+      left: 25%;
+      top: 3%;
+    }
+
+    .testimonial-heading {
+      align-self: flex-start;
+      padding-left: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .testimonial {
+      height: 210px;
+      width: 470px;
+      font-size: 1rem;
+    }
+
+    .slider-nav {
+      padding-block: 0;
+    }
   }
 
   .slider {
@@ -252,9 +321,4 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     outline: 2px solid rgb(240, 194, 165);
     outline-offset: 3px;
   }
-
-  /* .testimonial-img {
-    height: 400px;
-    width: 300px;
-  } */
 </style>
