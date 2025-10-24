@@ -31,12 +31,22 @@ const { borderSide = "right" } = Astro.props;
 
     position: relative;
     isolation: isolate;
+    
   }
 
   .glowing-border.right {
  align-self: flex-end;
   border-radius: 100vw 0 0 100vw;
   border-right: 0;
+
+    @media (max-width: 700px)  {
+    padding: 2.5rem 1.7rem;
+    max-width: 40.3ch;
+    border-radius: 0 0 0 0;
+
+    }
+
+  
 }
 
   @media (max-width: 800px) {
@@ -45,15 +55,15 @@ const { borderSide = "right" } = Astro.props;
     }
   }
 
-    @media (max-width: 700px) {
-    .glowing-border {
-      padding: 2.5rem 1.7rem;
-        max-width: 51.3ch;
-        height: 300px;
+  @media (max-width: 500px) {
+  .glowing-border {
+max-width: 25ch;
     }
 
-
   }
+
+
+
   .glowing-border.left {
     margin-inline-end: auto;
     border-radius: 0 100vw 100vw 0;

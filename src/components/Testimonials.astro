@@ -86,6 +86,10 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     display: flex;
     justify-content: flex-end;
     width: 100%;
+
+    @media (max-width: 700px) {
+      justify-content: center;
+    }
   }
 
   :root {
@@ -156,6 +160,7 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     align-self: flex-end;
     padding-right: 150px;
     margin-bottom: 0;
+    margin-top: 0;
     /* background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
@@ -255,11 +260,11 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
 
     .svg-img {
       top: -16.5%;
-      left: 0%;
+      left: 5%;
     }
 
     .testimonial-img {
-      left: 25%;
+      left: 30%;
       top: 3%;
     }
 
@@ -272,13 +277,53 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
 
   @media (max-width: 700px) {
     .testimonial {
-      height: 210px;
+      margin-top: 0;
       width: 470px;
       font-size: 1rem;
     }
 
-    .slider-nav {
-      padding-block: 0;
+    .slider {
+      width: 470px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .testimonial-heading {
+      align-self: center;
+      font-size: 2.8rem;
+      padding-inline: 0;
+      padding-bottom: 2rem;
+    }
+
+    .testimonial {
+      width: 410px;
+      height: 220px;
+      font-size: 15px;
+    }
+
+    /* .container {
+      padding: 0;
+    } */
+
+    .slider {
+      width: 420px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .testimonial {
+      padding-left: 0;
+      font-size: 14px;
+
+      width: 350px;
+    }
+
+    .container {
+      padding-left: 0;
+    }
+
+    .slider {
+      width: 350px;
     }
   }
 
