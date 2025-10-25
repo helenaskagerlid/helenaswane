@@ -74,4 +74,11 @@ import "normalize.css";
     margin: 0 auto;
     padding: 0 2rem;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 </style>
