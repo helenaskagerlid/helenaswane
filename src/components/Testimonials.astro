@@ -302,6 +302,12 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     }
   }
 
+  @media (max-width: 800px) {
+    :global(.glowing-border) {
+      padding-inline: 2.1rem;
+    }
+  }
+
   @media (max-width: 700px) {
     .testimonial {
       margin-top: 0;
@@ -311,6 +317,11 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
 
     .slider {
       width: 470px;
+    }
+
+    :global(.glowing-border.right) {
+      max-width: 40.3ch;
+      border-radius: 0 0 0 0;
     }
   }
 
