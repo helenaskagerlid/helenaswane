@@ -229,7 +229,8 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
 
   .svg-img,
   .testimonial-img {
-    transition: all 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transform-origin: center;
   }
 
   @media (max-width: 1300px) {
@@ -245,29 +246,29 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     }
 
     .svg-img {
-      height: 550px;
-      width: 540px;
-      top: -16.5%;
-      left: -20%;
+      transform: scale(0.95);
+      top: -19.5%;
+      left: -34%;
     }
 
     .testimonial-img {
-      height: 330px;
-      width: 320px;
-      left: 16%;
+      transform: scale(0.95);
+      left: 9%;
       top: 2%;
     }
   }
 
   @media (max-width: 1180px) {
     .svg-img {
-      top: -17%;
-      left: -33%;
+      transform: scale(0.8);
+      top: -26%;
+      left: -36%;
     }
 
     .testimonial-img {
-      left: 8%;
-      top: 2%;
+      transform: scale(0.8);
+      left: 9%;
+      top: -3%;
     }
 
     .testimonial-heading {
@@ -275,45 +276,29 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     }
   }
 
-  /* @media (max-width: 1100px) {
-    .svg-img {
-      height: 500px;
-      width: 490px;
-      top: -12%;
-      left: -45%;
-    }
-
-    .testimonial-img {
-      height: 300px;
-      width: 290px;
-      left: 0%;
-      top: 5.5%;
-    }
-  } */
-
-  @media (max-width: 1100px) {
+  @media (max-width: 1130px) {
     .testimonial-content {
       flex-direction: column;
     }
 
     .testimonial-heading {
       align-self: center;
-      padding-right: 0;
+      padding: 0;
     }
 
     .svg-img {
-      top: -16.5%;
-      left: 5%;
-      height: 550px;
-      width: 540px;
+      top: -19%;
+      left: 3%;
+      height: 620px;
+      width: 610px;
     }
 
     .testimonial-img {
-      left: 30%;
+      left: 28%;
       top: 3%;
 
-      height: 320px;
-      width: 310px;
+      height: 370px;
+      width: 360px;
     }
   }
 
@@ -333,8 +318,7 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     .testimonial-heading {
       align-self: center;
       font-size: 2.8rem;
-      padding-inline: 0;
-      padding-bottom: 2rem;
+      padding: 0;
     }
 
     .testimonial {
@@ -375,7 +359,6 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    /* box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25); */
   }
 
   .slider div {
