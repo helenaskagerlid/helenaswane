@@ -1,15 +1,19 @@
+---
+import { getEntry, render } from "astro:content";
+
+const transformativCoachning = await getEntry(
+  "transformativCoachning",
+  "index"
+);
+if (!transformativCoachning) throw new Error("Could not find entry");
+const { Content } = await render(transformativCoachning);
+---
+
 <section class="transformative-coaching" id="aboutCoachning">
   <div class="tc-wrapper section-inner">
-    <h2 class="tc-heading">Transformativ coachning</h2>
+    <h2 class="tc-heading">{transformativCoachning.data.title}</h2>
     <div class="text-wrapper">
-      <p class="tc-paragraph">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae vitae
-        natus distinctio, assumenda laboriosam similique excepturi reprehenderit
-        incidunt itaque quo recusandae cupiditate vero eligendi quibusdam
-        architecto odit non! Repudiandae excepturi non delectus sint numquam
-        reprehenderit, modi voluptatibus possimus temporibus deleniti
-        praesentium.
-      </p>
+      <Content />
       <button class="book-btn">Boka session</button>
     </div>
   </div>
@@ -37,16 +41,12 @@
     color: #2b2929;
   }
 
-  .tc-paragraph {
-    margin-top: 1.5rem;
-    max-width: 600px;
-    line-height: 1.6;
-    color: #2b2929;
-  }
-
   .text-wrapper {
     max-width: 600px;
     display: block;
+    max-width: 600px;
+    line-height: 1.6;
+    color: #2b2929;
   }
 
   .book-btn {
