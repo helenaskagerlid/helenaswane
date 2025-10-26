@@ -22,6 +22,18 @@ const transformativCoachning = defineCollection({
     }),
 });
 
+const testimonials = defineCollection({
+  loader: glob({
+    pattern: ["*.md"],
+    base: "src/content/testimonials",
+  }),
+  schema: ({}) =>
+    z.object({
+      name: z.string(),
+    }),
+});
+
 export const collections = {
   transformativCoachning,
+  testimonials,
 };

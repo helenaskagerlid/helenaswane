@@ -1,5 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import GlowingBorder from "../animations/GlowingBorder.astro";
+import { getEntry, render } from "astro:content";
+
+const testimonial1 = await getEntry("testimonials", "testimonial1");
+const testimonial2 = await getEntry("testimonials", "testimonial2");
+const testimonial3 = await getEntry("testimonials", "testimonial3");
+
+const allTestimonials = await getCollection("testimonials");
+console.log(allTestimonials);
 ---
 
 <section class="testimonial-section" id="testimonials">
@@ -52,20 +61,19 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
             <div class="slider-wrapper">
               <div class="slider" aria-label="Testimonials">
                 <div id="slide-1" class="testimonial" tabindex="0">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo,
-                  maxime ratione minus quae consectetur vel perferendis a in, id
-                  nisi dolorem laboriosam at provident voluptatum aspernatur
-                  tenetur, ipsam deserunt error laborum vero pariatur iste? Unde
-                  dolores repudiandae quae rem quod. Lorem ipsum dolor sit amet
-                  consectetur, adipisicing elit. Quo, maxime ratione minus quae
-                  consectetur vel perferendis a in, id nisi dolorem laboriosam
-                  at provident voluptatum aspernatur tenetur, ipsam deserunt
+                  {testimonial1?.body}
+                  <br />
+                  <span>{testimonial1!.data.name}</span>
                 </div>
                 <div id="slide-2" class="testimonial" tabindex="0">
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+                  {testimonial2?.body}
+                  <br />
+                  <span>{testimonial2!.data.name}</span>
                 </div>
                 <div id="slide-3" class="testimonial" tabindex="0">
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit..."
+                  {testimonial3?.body}
+                  <br />
+                  <span>{testimonial3!.data.name}</span>
                 </div>
               </div>
               <div class="slider-nav">
@@ -179,6 +187,11 @@ import GlowingBorder from "../animations/GlowingBorder.astro";
     padding-left: 10px;
     /* padding: 30px; */
     font-style: italic;
+  }
+
+  .testimonial > span {
+    font-style: normal;
+    font-weight: 600;
   }
 
   .container {
