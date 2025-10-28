@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.15.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "remove-markdown": "^0.6.2"
   }
 }
