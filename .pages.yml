@@ -1,4 +1,4 @@
-media: "public/images"
+media: "public"
 
 content:
   - name: blog-posts
