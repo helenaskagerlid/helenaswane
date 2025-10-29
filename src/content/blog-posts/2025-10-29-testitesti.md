@@ -8,6 +8,8 @@ Shortbread apple pie candy canes sugar plum jujubes. I love candy cake chupa chu
 
 <p style="text-align: center"><img src="/src/assets/images/pexels-temo-3508313%20Medium.jpeg"></p>
 
+![](/src/assets/images/pexels-temo-3508313%20Medium.png)
+
 Hejhej hjenvfsvn
 
 > "Jag vet inte vad jag tycker om detta?"
