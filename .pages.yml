@@ -35,7 +35,7 @@ content:
       type: rich-text
 
     view: 
-        fields: [title]
+        fields: [name]
 
 
   - name: transformative-coaching
@@ -50,4 +50,7 @@ content:
     - name: body
       label: Body
       type: rich-text
+
+    view: 
+        fields: [name]
       
