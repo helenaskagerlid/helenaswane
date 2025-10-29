@@ -1,17 +1,17 @@
 ---
 import { getEntry, render } from "astro:content";
 
-const transformativCoachning = await getEntry(
-  "transformativCoachning",
+const transformativeCoaching = await getEntry(
+  "transformativeCoaching",
   "index"
 );
-if (!transformativCoachning) throw new Error("Could not find entry");
-const { Content } = await render(transformativCoachning);
+if (!transformativeCoaching) throw new Error("Could not find entry");
+const { Content } = await render(transformativeCoaching);
 ---
 
 <section class="transformative-coaching" id="aboutCoachning">
   <div class="tc-wrapper section-inner">
-    <h2 class="tc-heading">{transformativCoachning.data.title}</h2>
+    <h2 class="tc-heading">{transformativeCoaching.data.title}</h2>
     <div class="text-wrapper">
       <Content />
       <button class="book-btn">Boka session</button>
