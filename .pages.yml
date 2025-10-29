@@ -41,7 +41,7 @@ content:
   - name: transformative-coaching
     label: Transformative Coaching
     type: file
-    path: src/content/transformative-coaching
+    path: src/content/transformative-coaching/index.md
     fields: 
     - name: title
       label: Title
