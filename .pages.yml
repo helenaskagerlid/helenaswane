@@ -1,0 +1,53 @@
+media: "src/assets/images"
+
+content:
+  - name: blog-posts
+    label: Blog Posts
+    type: collection
+    path: src/content/blog-posts
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: image
+        label: Artwork Image
+        type: image
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+
+    view: 
+        fields: [title, image]
+
+  - name: testimonials
+    label: Testimonials
+    type: collection
+    path: src/content/testimonials
+    fields: 
+    - name: name
+      label: Name
+      type: string
+      required: true
+    - name: body
+      label: Body
+      type: rich-text
+
+    view: 
+        fields: [title]
+
+
+  - name: transformative-coaching
+    label: Transformative Coaching
+    type: collection
+    path: src/content/transformative-coaching
+    fields: 
+    - name: name
+      label: Name
+      type: string
+      required: true
+    - name: body
+      label: Body
+      type: rich-text
+      
