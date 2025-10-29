@@ -43,8 +43,8 @@ content:
     type: collection
     path: src/content/transformative-coaching
     fields: 
-    - name: name
-      label: Name
+    - name: title
+      label: Title
       type: string
       required: true
     - name: body
@@ -52,5 +52,5 @@ content:
       type: rich-text
 
     view: 
-        fields: [name]
+        fields: [title]
       
