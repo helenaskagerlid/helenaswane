@@ -15,4 +15,6 @@ Shortbread apple pie candy canes sugar plum jujubes. I love candy cake chupa chu
 *   Cupcake
     
 
-![](/src/assets/images/Emblaba%CC%88st.jpg)
+```
+<img src="src/assets/images/emblabäst.jpg" alt="Min bild" width="400" />
+```
