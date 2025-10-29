@@ -11,10 +11,10 @@ import { glob } from "astro/loaders";
 //     }),
 // });
 
-const transformativCoachning = defineCollection({
+const transformativeCoaching = defineCollection({
   loader: glob({
     pattern: ["*.md"],
-    base: "src/content/transformativ-coachning",
+    base: "src/content/transformative-coaching",
   }),
   schema: ({}) =>
     z.object({
@@ -43,7 +43,7 @@ const blogPosts = defineCollection({
 });
 
 export const collections = {
-  transformativCoachning,
+  transformativeCoaching,
   testimonials,
   blogPosts,
 };
