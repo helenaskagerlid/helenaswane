@@ -1,6 +1,6 @@
 media: 
   input: "public"
-  output: "/media"
+  output: "/"
 
 content:
   - name: blog-posts
