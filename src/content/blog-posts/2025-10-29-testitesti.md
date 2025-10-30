@@ -8,4 +8,4 @@ Shortbread apple pie candy canes sugar plum jujubes. I love candy cake chupa chu
 
 ![](/media/testimonialimg.jpg)
 
-![](/media/helenaprofil.jpg)
+<p style="text-align: center"><img src="/media/helenaprofil.jpg" alt=""></p>
