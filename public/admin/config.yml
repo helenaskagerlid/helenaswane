@@ -1,3 +1,9 @@
+backend:
+  name: github
+  repo: helenaskagerlid/helenaswane
+  branch: main
+  base_url: https://helenaswane.vercel.app
+  auth_endpoint: /api/auth
 media_folder: "src/assets/images"
 public_folder: "src/assets/images"
 collections:
