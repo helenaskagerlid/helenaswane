@@ -10,4 +10,4 @@ image: src/assets/images/grumpysloth.webp
 * ser ut
 * såhär
 
-![](src/assets/images/grumpysloth.webp "en bild")
+![]( "en bild")
