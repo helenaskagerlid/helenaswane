@@ -34,11 +34,11 @@ site_url: https://helenaswane.netlify.app
 media_folder: "src/assets/images"
 public_folder: "src/assets/images"
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "src/content/blog-posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields for each document, usually in frontmatter
+  - name: "blogPosts"
+    label: "Blog"
+    folder: "src/content/blog-posts"
+    create: true
+    fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
