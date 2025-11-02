@@ -31,8 +31,8 @@ logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 # Add site links in Decap CMS (optional)
 site_url: https://helenaswane.netlify.app
 
-media_folder: "src/assets/images"
-public_folder: "/src/assets/images"
+media_folder: "src/assets"
+public_folder: "/src/assets"
 collections:
   - name: "blogPosts"
     label: "Blog"
