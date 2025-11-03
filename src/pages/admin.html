@@ -9,25 +9,5 @@
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
-
-    <script>
-      CMS.registerEditorComponent({
-        id: "youtube",
-        label: "YouTube",
-        fields: [{ name: "url", label: "YouTube Video URL", widget: "string" }],
-        pattern: /^{{< youtube (.*) >}}$/,
-        fromBlock(match) {
-          return { url: match[1] };
-        },
-        toBlock(obj) {
-          return `{{< youtube ${obj.url} >}}`;
-        },
-        toPreview(obj) {
-          const id = obj.url.includes("v=") ? obj.url.split("v=")[1] : obj.url; // if user pastes only ID
-
-          return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>`;
-        },
-      });
-    </script>
   </body>
 </html>
