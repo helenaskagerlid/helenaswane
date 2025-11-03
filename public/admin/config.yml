@@ -28,10 +28,13 @@ media_folder: "src/assets/"
 public_folder: "/src/assets"
 
 collections:
-  - name: blogPosts
-    label: Blog
-    folder: src/content/blog-posts
+  - name: "blogPosts"
+    label: "Blog"
+    folder: "src/content/blog-posts"
+    format: "yaml-frontmatter"
     create: true
+    editor:
+      preview: true
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Featured Image, name: image, widget: image }
