@@ -24,8 +24,8 @@ auth:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 site_url: https://helenaswane.netlify.app
 
-media_folder: "public"
-public_folder: "/"
+media_folder: "src/assets/"
+public_folder: "/src/assets"
 
 collections:
   - name: blogPosts
