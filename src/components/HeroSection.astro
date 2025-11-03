@@ -1,20 +1,16 @@
 ---
-import StarAnimation from "../animations/StarAnimation.astro";
-import GlitterAnimation from "../animations/GlitterAnimation.astro";
-import FloatingCircles from "../animations/FloatingCircles.astro";
 import BackgroundImage from "../assets/testbackground2.png";
+import BackgroundImage2 from "../assets/h.jpg";
 ---
 
 <div
   id="home"
   class="wrapper"
-  style={`background-image: linear-gradient(to bottom, #faf6f1 0%, rgba(250, 246, 241, 0) 35%), url(${BackgroundImage.src});`}
+  style={`background-image: linear-gradient(to bottom, #faf6f1 0%, rgba(250, 246, 241, 0) 20%), url(${BackgroundImage.src});`}
 >
-  <!-- <GlitterAnimation /> -->
-  <!-- <FloatingCircles /> -->
-  <div class="star-wrapper">
+  <!-- <div class="star-wrapper">
     <StarAnimation />
-  </div>
+  </div> -->
 
   <div class="heading-wrapper">
     <h1 class="heading">Redo för förändring?</h1>
@@ -71,44 +67,34 @@ import BackgroundImage from "../assets/testbackground2.png";
     letter-spacing: 2px;
     margin: 0;
     z-index: 3;
-    padding-right: 120px;
     display: inline-block;
     max-width: 90vw;
     text-align: center;
   }
 
-  @media (max-width: 800px) {
-    h1 {
-      padding-right: 100px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    h1 {
-      padding-right: 80px;
-    }
-  }
-
+  /* 
   @media (max-width: 964px) {
-    .magic-wand {
+    :global(.magic-wand) {
       left: 160%;
-      top: 29%;
+      top: -29%;
+      left: 100%;
+      top: 33%;
     }
   }
 
   @media (max-width: 756px) {
-    .magic-wand {
+    :global(.magic-wand) {
       width: clamp(75px, calc(4vw + 60px), 120px);
       height: clamp(75px, calc(4vw + 60px), 120px);
     }
   }
 
   @media (max-width: 600px) {
-    .magic-wand {
+    :global(.magic-wand) {
       width: clamp(60px, calc(3vw + 55px), 110px);
       height: clamp(60px, calc(3vw + 55px), 110px);
       left: 100%;
       top: 33%;
     }
-  }
+  } */
 </style>
