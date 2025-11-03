@@ -23,9 +23,9 @@ auth:
 
 publish_mode: editorial_workflow
 media_folder: "src/assets/"
-public_folder: "/src/assets/"
+public_folder: "/_astro"
 media_folder_relative: true
-public_folder_relative: true
+public_folder_relative: false
 
 collections:
   - name: "blogPosts"
