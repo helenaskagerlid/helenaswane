@@ -21,11 +21,11 @@ auth:
   last_name_claim: last_name
   avatar_url_claim: avatar_url
 
-logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-site_url: https://helenaswane.netlify.app
-
+publish_mode: editorial_workflow
 media_folder: "src/assets/"
-public_folder: "/src/assets"
+public_folder: "/src/assets/"
+media_folder_relative: true
+public_folder_relative: true
 
 collections:
   - name: "blogPosts"
