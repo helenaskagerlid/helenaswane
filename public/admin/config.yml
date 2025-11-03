@@ -12,7 +12,7 @@ backend:
     uploadMedia: "Upload “{{path}}” - {{author-name}} <{{author-login}}>"
     deleteMedia: "Delete “{{path}}” - {{author-name}} <{{author-login}}>"
 
-media_folder: "public
+media_folder: "public"
 public_folder: "/"
 
 collections:
