@@ -2,26 +2,47 @@
   <a class="logo-link" href="/">
     <img src="/HelenaTestLogga.png" alt="" class="logo" /></a
   >
+  <input id="menu-toggle" type="checkbox" />
+  <label class="menu-button" for="menu-toggle">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
+      width="24"
+      height="24"
+    >
+      <path
+        d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+      ></path></svg
+    >
+  </label>
 
-  <nav>
-    <ul>
-      <li>
+  <ul class="nav-list">
+    <li>
+      <label for="menu-toggle">
         <a href="/#aboutCoachning">Boka coachning</a>
-      </li>
-      <li>
+      </label>
+    </li>
+    <li>
+      <label for="menu-toggle">
         <a href="/#aboutCoachning">Om Transformativ coachning</a>
-      </li>
-      <li>
+      </label>
+    </li>
+    <li>
+      <label for="menu-toggle">
         <a href="/#testimonials">Testimonials</a>
-      </li>
-      <li>
+      </label>
+    </li>
+    <li>
+      <label for="menu-toggle">
         <a href="/#aboutHelena">Om Helena</a>
-      </li>
-      <li>
+      </label>
+    </li>
+    <li>
+      <label for="menu-toggle">
         <a href="/blog">Blogg</a>
-      </li>
-    </ul>
-  </nav>
+      </label>
+    </li>
+  </ul>
 </header>
 
 <style>
@@ -37,6 +58,14 @@
     z-index: 11;
   }
 
+  .nav-list {
+    display: flex;
+    margin-inline: 33px;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .logo-link {
     cursor: pointer;
   }
@@ -47,12 +76,40 @@
     padding-left: 50px;
   }
 
-  ul {
-    display: flex;
-    margin-inline: 33px;
-    padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+  .menu-button {
+    display: none;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: 1140px) {
+    .menu-button {
+      display: block;
+      cursor: pointer;
+      padding-inline: 30px;
+    }
+
+    .nav-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      background: #faf6f1;
+      flex-direction: column;
+      padding: 20px 0;
+      margin-inline: 0 !important;
+    }
+
+    #menu-toggle:checked ~ .nav-list {
+      display: flex;
+    }
+
+    .nav-list li {
+      margin: 10px 0;
+      text-align: center;
+    }
   }
 
   li {
