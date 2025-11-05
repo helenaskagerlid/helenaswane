@@ -1,6 +1,6 @@
 ---
 title: "Heeej"
-image: "@assets/testbackground2.png"
+image: "@assets/testbackground2.webp"
 ---
 
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore animi nam assumenda eum quibusdam ducimus, pariatur iure sunt tempora, minus error porro, quo quisquam nulla amet. Molestiae sit, nulla sed quidem magnam excepturi blanditiis nemo perspiciatis.
