@@ -4,6 +4,7 @@ import path from "path";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  site: "https://helenaswane.vercel.app/",
   vite: {
     resolve: {
       alias: {
