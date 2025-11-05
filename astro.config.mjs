@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import path from "path";
 
+import sitemap from "@astrojs/sitemap";
+
 export default defineConfig({
   vite: {
     resolve: {
@@ -9,4 +11,6 @@ export default defineConfig({
       },
     },
   },
+
+  integrations: [sitemap()],
 });
