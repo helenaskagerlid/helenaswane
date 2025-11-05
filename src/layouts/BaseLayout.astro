@@ -37,6 +37,25 @@ const { title, description } = Astro.props;
   <Footer />
 </html>
 
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Helena Swane by Heart",
+    "description": "Transformativ coaching och personlig utveckling",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Björlanda Kyrkväg 8",
+      "postalCode": "423 61",
+      "addressLocality": "Torslanda",
+      "addressCountry": "SE"
+    },
+    "telephone": "+46 70 862 67 39",
+    "areaServed": "Sweden",
+    "url": "https://helenaswane.vercel.app"
+  }
+</script>
+
 <style is:global>
   :root {
     box-sizing: border-box;
