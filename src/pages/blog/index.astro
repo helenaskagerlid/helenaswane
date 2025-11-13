@@ -8,7 +8,11 @@ const allBlogposts = await getCollection("blogPosts");
 
 <BaseLayout title="Helena Swane - Blogg" description="">
   <section id="blogPostGallery" class="blog-post-gallery">
-    <h2 class="blog-post-gallery-title">Blogg</h2>
+    <div class="blog-hero">
+      <h2 class="blog-post-gallery-title">Blogg</h2>
+      <p>- Lorem ipsum delore</p>
+    </div>
+
     <div class="blog-post-grid">
       {
         allBlogposts.map((blogpost) => (
@@ -25,6 +29,31 @@ const allBlogposts = await getCollection("blogPosts");
 </BaseLayout>
 
 <style>
+  .blog-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 300px;
+    background-image: url("/blog-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-inline: 100px;
+    position: relative;
+  }
+
+  .blog-hero::before {
+    content: "";
+    position: absolute;
+    left: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 150px;
+    background-color: white;
+  }
+
   .blog-post-gallery {
     padding-block-start: 70px;
     background-color: #faf6f1;
@@ -55,10 +84,10 @@ const allBlogposts = await getCollection("blogPosts");
   }
 
   .blog-post-gallery-title {
-    color: black;
-    font-size: 33px;
+    color: white;
+    font-size: 43px;
     font-family: "Raleway", sans-serif;
-    padding-inline: 100px;
+    margin-bottom: 0;
 
     @media (max-width: 1400px) {
       width: 830px;
@@ -70,7 +99,13 @@ const allBlogposts = await getCollection("blogPosts");
     @media (max-width: 950px) {
       width: 100%;
       max-width: 350px;
-      text-align: center;
     }
+  }
+
+  .blog-hero h2,
+  .blog-hero p {
+    color: white;
+    margin: 0;
+    padding-left: 10px;
   }
 </style>
