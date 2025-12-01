@@ -1,5 +1,7 @@
 ---
 import { getEntry, render } from "astro:content";
+import StarAnimation from "../animations/StarAnimation.astro";
+import RoundGlowingBorder from "../animations/RoundGlowingBorder.astro";
 
 const transformativeCoaching = await getEntry(
   "transformativeCoaching",
@@ -11,51 +13,79 @@ const { Content } = await render(transformativeCoaching);
 
 <section class="transformative-coaching" id="aboutCoachning">
   <div class="tc-wrapper section-inner">
-    <h2 class="tc-heading">{transformativeCoaching.data.title}</h2>
     <div class="text-wrapper">
+      <h2 class="tc-heading">{transformativeCoaching.data.title}</h2>
+      <!-- <div class="star-wrapper">
+      <StarAnimation />
+    </div> -->
+
       <Content />
       <button class="book-btn">Boka session</button>
     </div>
+    <div class="tc-img-wrapper">
+      <RoundGlowingBorder>
+        <img
+          class="tc-img"
+          src="/helenaswaneprofil.png"
+          alt="profile image of Helena Swane in a brigth pink jacket and a big smile"
+        />
+      </RoundGlowingBorder>
+    </div>
   </div>
+
+  <style>
+    .transformative-coaching {
+      width: 100vw;
+      background-color: #faf6f1;
+      /* background: linear-gradient(to bottom, #faf6f1 0%, #b86b95 100%); */
+      padding-block: 100px;
+      padding-block: 100px;
+    }
+
+    .tc-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .tc-heading {
+      font-weight: 400;
+      font-size: clamp(2rem, calc(1.2rem + 4.2vw), 3.5rem);
+      text-transform: uppercase;
+      color: #2b2929;
+    }
+
+    .text-wrapper {
+      display: block;
+      max-width: 600px;
+      line-height: 1.6;
+      color: #2b2929;
+      margin-right: 100px;
+    }
+
+    .book-btn {
+      display: block;
+      width: 150px;
+      padding: 20px;
+      border-radius: 8px;
+      margin-left: auto;
+      border: none;
+      cursor: pointer;
+      background-color: #d82094;
+      color: #faf6f1;
+    }
+
+    .tc-img {
+      height: 300px;
+      width: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+
+      flex-shrink: 0;
+      /* transform: scale(1.24); */
+    }
+
+    .tc-img-wrapper > :global(.round-glowing-border) {
+      width: 300px;
+    }
+  </style>
 </section>
-
-<style>
-  .transformative-coaching {
-    width: 100vw;
-    background-color: #faf6f1;
-    /* background: linear-gradient(to bottom, #faf6f1 0%, #b86b95 100%); */
-    padding-block: 100px;
-    padding-block: 100px;
-  }
-
-  .tc-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .tc-heading {
-    font-weight: 400;
-    font-size: clamp(2rem, calc(1.2rem + 4.2vw), 3.5rem);
-    text-transform: uppercase;
-    color: #2b2929;
-  }
-
-  .text-wrapper {
-    max-width: 600px;
-    display: block;
-    max-width: 600px;
-    line-height: 1.6;
-    color: #2b2929;
-  }
-
-  .book-btn {
-    display: block;
-    width: 150px;
-    padding: 20px;
-    border-radius: 8px;
-    margin-left: auto;
-    border: none;
-    cursor: pointer;
-  }
-</style>
