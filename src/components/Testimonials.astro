@@ -7,8 +7,8 @@ const testimonial1 = await getEntry("testimonials", "testimonial1");
 const testimonial2 = await getEntry("testimonials", "testimonial2");
 const testimonial3 = await getEntry("testimonials", "testimonial3");
 
-const allTestimonials = await getCollection("testimonials");
-console.log(allTestimonials);
+// const allTestimonials = await getCollection("testimonials");
+// console.log(allTestimonials);
 ---
 
 <section class="testimonial-section" id="testimonials">
@@ -30,17 +30,40 @@ console.log(allTestimonials);
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stop-color="#fde2e4">
+              <stop offset="0%" stop-color="#e35b7d">
                 <animate
                   attributeName="stop-color"
-                  values="#fde2e4;#fad2e1;#fbc4ab;#ffcfd2;#fde2e4;#ffb3c1;#fbc4ab;#fad2e1;#fde2e4"
+                  values="
+      #e35b7d;
+      #ef6c8f;
+      #f492b8;
+      #f7a3c6;
+      #fcd1e3;
+      #cc4668;
+      #e35b7d;
+      #ef6c8f;
+      #f492b8;
+      #f7a3c6;
+      #e35b7d
+    "
                   dur="35s"
                   repeatCount="indefinite"></animate>
               </stop>
-              <stop offset="100%" stop-color="#ffcfd2">
+
+              <stop offset="100%" stop-color="#f26fa0">
                 <animate
                   attributeName="stop-color"
-                  values="#ffe5b4;#ffd1a4;#ffb07c;#f9a66c;#f6c77d;#ffd1a4;#ffe5b4"
+                  values="
+      #f7a3c6;
+      #fcd1e3;
+      #e35b7d;
+      #cc4668;
+      #ef6c8f;
+      #f492b8;
+      #f7a3c6;
+      #cc4668;
+      #f26fa0
+    "
                   dur="35s"
                   repeatCount="indefinite"></animate>
               </stop>
@@ -53,7 +76,7 @@ console.log(allTestimonials);
             transform="translate(100 100)"></path>
         </svg>
 
-        <img src="/testimonialimg.jpg" alt="" class="testimonial-img" />
+        <img src="/rainbowbutterfly.jpg" alt="" class="testimonial-img" />
       </div>
       <div class="glowing-border-container">
         <GlowingBorder borderSide="right">
@@ -402,7 +425,7 @@ console.log(allTestimonials);
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: rgb(240, 194, 165);
+    background-color: #d82094;
     opacity: 0.75;
     transition: opacity ease 250ms;
   }
@@ -412,7 +435,20 @@ console.log(allTestimonials);
   }
 
   .slider-nav a:focus {
-    outline: 2px solid rgb(240, 194, 165);
+    outline: 2px solid #d82094;
     outline-offset: 3px;
   }
+
+  /* .svg-img,
+  .testimonial-img {
+    transition: transform 0.5s ease-in-out;
+    transform-origin: center;
+     z-index: 1; 
+  }
+
+  :global(.glowing-border.right) {
+    width: 70ch;
+    max-width: none !important;
+    z-index: 0; 
+  } */
 </style>
