@@ -57,16 +57,21 @@ const { title, description } = Astro.props;
 </script>
 
 <style is:global>
-  :root {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
+  }
+
+  :root {
     margin: 0;
     font-family: "Montserrat", sans-serif;
     line-height: 1.5;
     font-weight: 400;
-
+    box-sizing: border-box;
     color-scheme: light dark;
     background-color: #faf6f1;
-    color: azure;
+    color: black;
 
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
