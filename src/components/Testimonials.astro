@@ -79,34 +79,34 @@ const testimonial3 = await getEntry("testimonials", "testimonial3");
         <img src="/rainbowbutterfly.jpg" alt="" class="testimonial-img" />
       </div>
       <div class="glowing-border-container">
-        <GlowingBorder borderSide="right">
-          <section class="container">
-            <div class="slider-wrapper">
-              <div class="slider" aria-label="Testimonials">
-                <div id="slide-1" class="testimonial" tabindex="0">
-                  {testimonial1?.body}
-                  <br />
-                  <span>{testimonial1!.data.name}</span>
-                </div>
-                <div id="slide-2" class="testimonial" tabindex="0">
-                  {testimonial2?.body}
-                  <br />
-                  <span>{testimonial2!.data.name}</span>
-                </div>
-                <div id="slide-3" class="testimonial" tabindex="0">
-                  {testimonial3?.body}
-                  <br />
-                  <span>{testimonial3!.data.name}</span>
-                </div>
+        <!-- <GlowingBorder borderSide="right"> -->
+        <section class="container">
+          <div class="slider-wrapper">
+            <div class="slider" aria-label="Testimonials">
+              <div id="slide-1" class="testimonial" tabindex="0">
+                {testimonial1?.body}
+                <br />
+                <span>{testimonial1!.data.name}</span>
               </div>
-              <div class="slider-nav">
-                <a href="#slide-1"></a>
-                <a href="#slide-2"></a>
-                <a href="#slide-3"></a>
+              <div id="slide-2" class="testimonial" tabindex="0">
+                {testimonial2?.body}
+                <br />
+                <span>{testimonial2!.data.name}</span>
+              </div>
+              <div id="slide-3" class="testimonial" tabindex="0">
+                {testimonial3?.body}
+                <br />
+                <span>{testimonial3!.data.name}</span>
               </div>
             </div>
-          </section>
-        </GlowingBorder>
+            <div class="slider-nav">
+              <a href="#slide-1"></a>
+              <a href="#slide-2"></a>
+              <a href="#slide-3"></a>
+            </div>
+          </div>
+        </section>
+        <!-- </GlowingBorder> -->
       </div>
     </div>
   </div>
@@ -190,7 +190,6 @@ const testimonial3 = await getEntry("testimonials", "testimonial3");
     color: rgb(90, 87, 87);
     align-self: flex-end;
     padding-right: 150px;
-    padding-bottom: 2rem;
     margin-bottom: 0;
     margin-top: 0;
     /* background: var(--gradient);
@@ -205,7 +204,6 @@ const testimonial3 = await getEntry("testimonials", "testimonial3");
     background-color: #faf6f1;
     color: black;
     font-family: "Raleway", sans-serif;
-    margin-top: 30px;
     margin-left: 60px;
     padding-left: 10px;
     /* padding: 30px; */
