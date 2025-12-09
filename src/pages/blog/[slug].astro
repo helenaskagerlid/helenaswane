@@ -17,7 +17,7 @@ const { blogpost } = Astro.props;
 const { Content } = await render(blogpost);
 ---
 
-<BaseLayout>
+<BaseLayout title="Blogpost">
   <div class="blog-post-content">
     <article class="blog-post">
       <Image
@@ -44,7 +44,6 @@ const { Content } = await render(blogpost);
     align-items: center;
     justify-content: center;
     background-color: #faf6f1;
-    color: black;
     padding-block: 50px;
   }
 
