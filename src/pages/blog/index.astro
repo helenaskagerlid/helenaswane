@@ -39,14 +39,16 @@ const allBlogposts = await getCollection("blogPosts");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding-inline: 100px;
     position: relative;
+    padding-left: 130px;
+    margin-top: 30px;
+    margin-bottom: 50px;
   }
 
   .blog-hero::before {
     content: "";
     position: absolute;
-    left: 90px;
+    left: 110px;
     top: 50%;
     transform: translateY(-50%);
     width: 4px;
@@ -55,9 +57,9 @@ const allBlogposts = await getCollection("blogPosts");
   }
 
   .blog-post-gallery {
-    padding-block-start: 70px;
     background-color: #faf6f1;
     width: 100vw;
+    padding-bottom: 70px;
   }
 
   .blog-post-grid {
@@ -88,6 +90,7 @@ const allBlogposts = await getCollection("blogPosts");
     font-size: 43px;
     font-family: "Raleway", sans-serif;
     margin-bottom: 0;
+    font-size: 3rem;
 
     @media (max-width: 1400px) {
       width: 830px;
