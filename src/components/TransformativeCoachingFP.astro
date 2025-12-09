@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from "astro:content";
 import RoundGlowingBorder from "../animations/RoundGlowingBorder.astro";
+import StarAnimation from "../animations/StarAnimation.astro";
 
 const transformativeCoaching = await getEntry(
   "transformativeCoaching",
@@ -13,22 +14,75 @@ const { Content } = await render(transformativeCoaching);
 <section class="transformative-coaching" id="aboutCoachning">
   <div class="tc-wrapper section-inner">
     <div class="text-wrapper">
-      <h2 class="tc-heading">{transformativeCoaching.data.title}</h2>
-      <!-- <div class="star-wrapper">
-      <StarAnimation />
-    </div> -->
+      <div class="star-wrapper">
+        <StarAnimation />
+        <h2 class="tc-heading">{transformativeCoaching.data.title}</h2>
+      </div>
+      <h3 class="tc-subheading">{transformativeCoaching.data.subtitle}</h3>
 
       <Content />
       <button class="book-btn">Boka session</button>
     </div>
 
-    <RoundGlowingBorder>
+    <div class="image-wrapper">
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+        class="svg-blob"
+      >
+        <defs>
+          <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e35b7d">
+              <animate
+                attributeName="stop-color"
+                values="
+      #e35b7d;
+      #ef6c8f;
+      #f492b8;
+      #f7a3c6;
+      #fcd1e3;
+      #cc4668;
+      #e35b7d;
+      #ef6c8f;
+      #f492b8;
+      #f7a3c6;
+      #e35b7d
+    "
+                dur="35s"
+                repeatCount="indefinite"></animate>
+            </stop>
+
+            <stop offset="100%" stop-color="#f26fa0">
+              <animate
+                attributeName="stop-color"
+                values="
+      #f7a3c6;
+      #fcd1e3;
+      #e35b7d;
+      #cc4668;
+      #ef6c8f;
+      #f492b8;
+      #f7a3c6;
+      #cc4668;
+      #f26fa0
+    "
+                dur="35s"
+                repeatCount="indefinite"></animate>
+            </stop>
+          </linearGradient>
+        </defs>
+
+        <path
+          fill="url(#blobGradient)"
+          d="M45.7,-73.1C57.8,-63.5,65,-48.2,70.8,-33C76.7,-17.9,81.2,-2.8,81,12.9C80.7,28.6,75.7,44.9,65.6,57.3C55.6,69.7,40.5,78.2,24.2,83.5C7.9,88.8,-9.7,90.9,-24.6,85.7C-39.6,80.5,-51.8,68,-63,54.8C-74.2,41.6,-84.3,27.6,-87.6,11.9C-90.8,-3.7,-87.2,-20.9,-78.8,-34.6C-70.4,-48.2,-57.1,-58.2,-43.2,-67C-29.2,-75.7,-14.6,-83.1,1.1,-84.9C16.9,-86.6,33.7,-82.7,45.7,-73.1Z"
+          transform="translate(100 100)"></path>
+      </svg>
       <img
         class="tc-img"
-        src="/helenaswaneprofil.png"
-        alt="profile image of Helena Swane in a brigth pink jacket and a big smile"
+        src="/blobhelena.png"
+        alt="profile image of Helena Swane in a bright pink jacket and a big smile"
       />
-    </RoundGlowingBorder>
+    </div>
   </div>
 
   <style>
@@ -47,17 +101,23 @@ const { Content } = await render(transformativeCoaching);
 
     .tc-heading {
       font-weight: 400;
-      font-size: clamp(2rem, calc(1.2rem + 4.2vw), 3.5rem);
+      font-size: clamp(1rem, calc(0.2rem + 3.2vw), 2.5rem);
+      margin: 0;
       text-transform: uppercase;
-      color: #2b2929;
+    }
+
+    .tc-subheading {
+      font-weight: 500;
+      margin: 0;
+      padding-block: 10px;
+      font-size: 1.08rem;
     }
 
     .text-wrapper {
       display: block;
-      max-width: 600px;
+      max-width: 700px;
       line-height: 1.6;
-      color: #2b2929;
-      margin-right: 100px;
+      margin-right: 70px;
     }
 
     .book-btn {
@@ -72,18 +132,37 @@ const { Content } = await render(transformativeCoaching);
       color: #faf6f1;
     }
 
-    .tc-img {
-      height: 300px;
-      width: 300px;
-      border-radius: 50%;
-      object-fit: cover;
+    .image-wrapper {
+      position: relative;
+      width: 500px;
+      height: 500px;
+    }
 
-      flex-shrink: 0;
-      /* transform: scale(1.24); */
+    .svg-blob {
+      position: absolute;
+      height: 500px;
+      width: 480px;
+      top: 0;
+      left: 0;
+    }
+
+    .tc-img {
+      position: absolute;
+      top: 10%;
+      left: 14%;
+      z-index: 2;
+      height: 400px;
+      width: 100%;
+      object-fit: contain;
     }
 
     /* .tc-img-wrapper > :global(.round-glowing-border) {
       width: 300px;
     } */
+
+    .star-wrapper {
+      display: flex;
+      position: relative;
+    }
   </style>
 </section>
