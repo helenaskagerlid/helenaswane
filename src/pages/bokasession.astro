@@ -1,7 +1,9 @@
 <form name="contact" method="POST" data-netlify="true">
+  <!-- NETLIFY MÅSTE HA DEN HÄR -->
+  <input type="hidden" name="form-name" value="contact" />
+
   <input type="text" name="namn" placeholder="Ditt namn" required />
   <input type="email" name="email" placeholder="Din e-post" required />
-  <textarea name="message" placeholder="Ditt meddelande" required></textarea>
-
+  <textarea name="message" placeholder="Meddelande" required></textarea>
   <button type="submit">Skicka</button>
 </form>
