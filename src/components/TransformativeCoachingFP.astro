@@ -21,7 +21,7 @@ const { Content } = await render(transformativeCoaching);
       <h3 class="tc-subheading">{transformativeCoaching.data.subtitle}</h3>
 
       <Content />
-      <button class="book-btn">Boka session</button>
+      <button class="book-btn"><a href="/bokasession">Boka session</a></button>
     </div>
 
     <div class="image-wrapper">
@@ -130,6 +130,11 @@ const { Content } = await render(transformativeCoaching);
       border: none;
       cursor: pointer;
       background-color: #d82094;
+      color: #faf6f1;
+    }
+
+    .book-btn a {
+      text-decoration: none;
       color: #faf6f1;
     }
 
