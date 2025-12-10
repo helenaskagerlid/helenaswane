@@ -1,0 +1,145 @@
+---
+import { getEntry } from "astro:content";
+
+const testimonial1 = await getEntry("testimonials", "testimonial1");
+const testimonial2 = await getEntry("testimonials", "testimonial2");
+const testimonial3 = await getEntry("testimonials", "testimonial3");
+---
+
+<section class="testimonial-section" id="testimonials">
+  <div class="slider-wrapper">
+    <div class="slider">
+      <div class="slide">
+        {testimonial1?.body}<br />
+        <span>{testimonial1!.data.name}</span>
+      </div>
+      <div class="slide">
+        {testimonial2?.body}<br />
+        <span>{testimonial2!.data.name}</span>
+      </div>
+      <div class="slide">
+        {testimonial3?.body}<br />
+        <span>{testimonial3!.data.name}</span>
+      </div>
+    </div>
+
+    <button class="prev-btn">‹</button>
+    <button class="next-btn">›</button>
+
+    <div class="slider-nav">
+      <button class="nav-btn"></button>
+      <button class="nav-btn"></button>
+      <button class="nav-btn"></button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .slider-wrapper {
+    position: relative;
+    width: 650px;
+    height: 300px;
+    overflow: hidden;
+    margin: 2rem auto;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    background: #faf6f1;
+    border-radius: 15px;
+    font-style: italic;
+    padding: 40px 60px;
+  }
+
+  .slide span {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #d82094;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+
+  .slider-nav {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-btn {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    border: none;
+    background-color: #d82094;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .nav-btn.active {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const slider = document.querySelector(".slider") as HTMLElement;
+  const prevBtn = document.querySelector(".prev-btn") as HTMLElement;
+  const nextBtn = document.querySelector(".next-btn") as HTMLElement;
+  const navBtns = Array.from(
+    document.querySelectorAll(".nav-btn")
+  ) as HTMLElement[];
+
+  let index = 0;
+
+  function updateSlider() {
+    slider!.style.transform = `translateX(-${index * 100}%)`;
+    navBtns.forEach((btn, i) => btn.classList.toggle("active", i === index));
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  prevBtn!.addEventListener("click", prevSlide);
+  nextBtn!.addEventListener("click", nextSlide);
+
+  navBtns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      index = i;
+      updateSlider();
+    });
+  });
+
+  let autoplay = setInterval(nextSlide, 15000);
+
+  updateSlider();
+</script>
