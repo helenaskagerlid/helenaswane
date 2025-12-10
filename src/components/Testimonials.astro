@@ -1,5 +1,15 @@
 ---
+import { getCollection } from "astro:content";
+import GlowingBorder from "../animations/GlowingBorder.astro";
+import { getEntry, render } from "astro:content";
 import TestimonialSlider from "./TestimonialSlider.astro";
+
+const testimonial1 = await getEntry("testimonials", "testimonial1");
+const testimonial2 = await getEntry("testimonials", "testimonial2");
+const testimonial3 = await getEntry("testimonials", "testimonial3");
+
+// const allTestimonials = await getCollection("testimonials");
+// console.log(allTestimonials);
 ---
 
 <section class="testimonial-section" id="testimonials">
@@ -155,6 +165,43 @@ import TestimonialSlider from "./TestimonialSlider.astro";
         /* background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
+      }
+
+      .testimonial {
+        width: 550px;
+        height: 200px;
+        border-radius: 20px;
+        background-color: #faf6f1;
+        font-family: "Raleway", sans-serif;
+        margin-left: 60px;
+        padding-left: 10px;
+        /* padding: 30px; */
+        font-style: italic;
+      }
+
+      .testimonial > span {
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      .container {
+        display: flex;
+        padding-bottom: 30px;
+        padding-left: 20px;
+      }
+
+      .slider-wrapper {
+        position: relative;
+        max-width: 610px;
+        height: 220px;
+        margin: 0 auto;
+        border-radius: 20px;
+      }
+
+      .testimonial-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .image-wrapper {
