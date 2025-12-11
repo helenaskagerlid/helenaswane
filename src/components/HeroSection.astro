@@ -1,18 +1,10 @@
 ---
-import BackgroundImage from "../assets/testbackground2.webp";
-import BackgroundImage2 from "../assets/h.jpg";
-import BackgroundImage3 from "../assets/test3.jpg";
+import BackgroundImage from "../assets/test3.jpg";
+import { Image } from "astro:assets";
 ---
 
-<div
-  id="home"
-  class="wrapper"
-  style={`background-image: linear-gradient(to bottom, #faf6f1 0%, rgba(250, 246, 241, 0) 20%), url(${BackgroundImage3.src});`}
->
-  <!-- <div class="star-wrapper">
-    <StarAnimation />
-  </div> -->
-
+<div id="home" class="wrapper">
+  <Image class="hero-img" src={BackgroundImage} alt="" format="webp" />
   <div class="heading-wrapper">
     <h1 class="heading">Redo för förändring?</h1>
   </div>
@@ -35,36 +27,48 @@ import BackgroundImage3 from "../assets/test3.jpg";
   }
 
   .wrapper {
-    display: flex;
-    justify-content: center;
-
+    position: relative;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(
-        to bottom,
-        #faf6f1 0%,
-        rgba(250, 246, 241, 0) 35%
-      ),
-      url("/testbackground2.webp");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
     overflow: hidden;
-    position: relative;
+  }
+
+  .wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      #faf6f1 0%,
+      rgba(250, 246, 241, 0) 35%
+    );
+    z-index: 2;
+  }
+
+  .hero-img {
+    position: absolute !important; /* behövs för Astro Image */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 1;
   }
 
   .heading-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 100%;
+    text-align: center;
   }
 
   h1 {
-    /* font-family: "Raleway", sans-serif; */
     font-size: clamp(2rem, calc(1.2rem + 4.2vw), 3.5rem);
     font-weight: 400;
     text-transform: uppercase;
-    /* text-shadow: 2px 2px 4px rgba(93, 92, 92, 0.6); */
     letter-spacing: 2px;
     margin: 0;
     z-index: 3;
@@ -73,30 +77,4 @@ import BackgroundImage3 from "../assets/test3.jpg";
     text-align: center;
     margin-bottom: 120px;
   }
-
-  /* 
-  @media (max-width: 964px) {
-    :global(.magic-wand) {
-      left: 160%;
-      top: -29%;
-      left: 100%;
-      top: 33%;
-    }
-  }
-
-  @media (max-width: 756px) {
-    :global(.magic-wand) {
-      width: clamp(75px, calc(4vw + 60px), 120px);
-      height: clamp(75px, calc(4vw + 60px), 120px);
-    }
-  }
-
-  @media (max-width: 600px) {
-    :global(.magic-wand) {
-      width: clamp(60px, calc(3vw + 55px), 110px);
-      height: clamp(60px, calc(3vw + 55px), 110px);
-      left: 100%;
-      top: 33%;
-    }
-  } */
 </style>

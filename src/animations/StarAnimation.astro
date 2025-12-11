@@ -1,5 +1,16 @@
+---
+import { Image } from "astro:assets";
+---
+
 <div class="magic-wand">
-  <img src="/magicwand.svg" alt="" class="magic-wand-icon" />
+  <Image
+    class="magic-wand-icon"
+    src="/magicwand.svg"
+    alt="A magic wand"
+    width={150}
+    height={150}
+    format="webp"
+  />
   <div class="star-1">
     <svg
       xmlns="http://www.w3.org/2000/svg"

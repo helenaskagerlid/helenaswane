@@ -1,16 +1,54 @@
-<section class="section-divider"></section>
+---
+import BgImage from "../assets/test3.jpg";
+import { Image } from "astro:assets";
+---
+
+<section class="section-divider">
+  <Image
+    class="divider-img"
+    src={BgImage}
+    alt=""
+    width={2000}
+    height={1000}
+    format="webp"
+  />
+</section>
 
 <style>
   .section-divider {
+    position: relative;
     height: 250px;
     width: 100%;
-    background-image: linear-gradient(
-        to bottom,
-        #faf6f1 0%,
-        rgba(250, 246, 241, 0) 35%
-      ),
-      linear-gradient(to top, #faf6f1 0%, rgba(250, 246, 241, 0) 30%),
-      url("../assets/test3.jpg");
-    background-size: cover;
+    overflow: hidden;
+  }
+
+  .divider-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    object-position: center 1%;
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      #faf6f1 0%,
+      rgba(250, 246, 241, 0) 35%
+    );
+    z-index: 2;
+  }
+
+  .section-divider::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #faf6f1 0%, rgba(250, 246, 241, 0) 30%);
+    z-index: 3;
   }
 </style>
