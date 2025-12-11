@@ -4,7 +4,14 @@ import { Image } from "astro:assets";
 ---
 
 <div id="home" class="wrapper">
-  <Image class="hero-img" src={BackgroundImage} alt="" format="webp" />
+  <Image
+    class="hero-img"
+    src={BackgroundImage}
+    alt=""
+    format="webp"
+    loading="lazy"
+    loading={"eager"}
+  />
   <div class="heading-wrapper">
     <h1 class="heading">Redo för förändring?</h1>
   </div>
