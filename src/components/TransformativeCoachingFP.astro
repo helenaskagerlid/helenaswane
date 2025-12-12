@@ -22,9 +22,11 @@ const { Content } = await render(transformativeCoaching);
       <h3 class="tc-subheading">{transformativeCoaching.data.subtitle}</h3>
 
       <Content />
-      <button aria-label="book a session" class="book-btn"
-        ><a href="/bokasession">Boka</a></button
-      >
+      <a href="/bokasession" class="book-link"
+        ><button aria-label="book a session" class="book-btn"
+          >Boka session</button
+        >
+      </a>
     </div>
 
     <div class="image-wrapper">
@@ -77,7 +79,7 @@ const { Content } = await render(transformativeCoaching);
 
     .book-btn {
       display: block;
-      width: 150px;
+      width: 160px;
       padding: 20px;
       border-radius: 9999px;
       margin-left: auto;
@@ -85,12 +87,13 @@ const { Content } = await render(transformativeCoaching);
       cursor: pointer;
       background-color: #d82094;
       color: #faf6f1;
+      text-decoration: none;
     }
 
-    .book-btn a {
+    .book-link {
+      width: 200px;
       text-decoration: none;
       color: #faf6f1;
-      text-transform: uppercase;
       font-size: 18px;
     }
 
