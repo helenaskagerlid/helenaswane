@@ -23,6 +23,8 @@ const { Content } = await render(blogpost);
       <Image
         src={blogpost.data.image}
         loading="eager"
+        width="289"
+        height="314"
         alt=`${blogpost.data.title}`
         class={`blog-post-image`}
       />
@@ -55,7 +57,8 @@ const { Content } = await render(blogpost);
   }
 
   .blog-post-image {
-    width: 800px;
+    width: 289px;
+    height: 314px;
     height: auto;
     object-fit: cover;
   }
