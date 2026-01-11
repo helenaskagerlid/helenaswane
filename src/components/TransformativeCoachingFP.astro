@@ -21,7 +21,25 @@ const { Content } = await render(transformativeCoaching);
       </div>
       <h3 class="tc-subheading">{transformativeCoaching.data.subtitle}</h3>
 
-      <Content />
+      <div class="tc-text">
+        <p>
+          När du upplever att du sitter fast och vill bli fri från det som
+          hindrar dig.
+        </p>
+        <p>
+          Här blir du mjukt guidad till kontakt med ditt undermedvetna där du
+          kan transformera det som längtar efter förändring.
+        </p>
+        <p>
+          Många upplever att dessa sessioner ger djupgående förändring utan att
+          behöva gräva djupt i det tunga, att processen kan kännas förvånansvärt
+          lättsam och enkel.
+        </p>
+        <p>
+          Du behöver inte bli någon som du inte är, det här är en inbjudan till
+          att få komma hem till dig själv.
+        </p>
+      </div>
       <a href="/bokasession" class="book-link"
         ><button aria-label="book a session" class="book-btn"
           >Boka session</button
@@ -68,8 +86,19 @@ const { Content } = await render(transformativeCoaching);
     .tc-subheading {
       font-weight: 500;
       margin: 0;
-      padding-block: 10px;
-      font-size: 1.08rem;
+      padding-top: 10px;
+      font-size: 1rem;
+    }
+
+    .tc-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .tc-text p {
+      margin: 0;
     }
 
     .text-wrapper {
