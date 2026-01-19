@@ -45,7 +45,7 @@
     <li>
       <a href="/tilldig" class="freebie-link">
         <button class="freebie-btn" aria-label="freebie button">
-          Till dig <span class="heart-icon">♡</span>
+          Till dig <span class="heart-icon">♥</span>
         </button>
       </a>
     </li>
@@ -146,15 +146,31 @@
     justify-content: center;
     align-items: center;
     width: 138px;
-    padding: 5px;
+    /* padding: 5px; */
     border-radius: 9999px;
     margin-left: auto;
     border: none;
     cursor: pointer;
-    background-color: #d82094;
     margin-right: 20px;
     text-transform: uppercase;
     color: white;
+    background: linear-gradient(
+      135deg,
+      #e35b7d,
+      #ef6c8f,
+      #f492b8,
+      #cc4668,
+      #e35b7d,
+      #ef6c8f,
+      #f492b8,
+      #e35b7d
+    );
+
+    background-size: 500% 500%;
+    animation: gradient-wave 90s ease-in-out infinite;
+    transition:
+      transform 0.9s ease,
+      box-shadow 0.9s ease;
   }
 
   .freebie-link {
@@ -164,5 +180,23 @@
   .heart-icon {
     font-size: 35px;
     margin-bottom: 5px;
+  }
+
+  @keyframes gradient-wave {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 0%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 </style>
