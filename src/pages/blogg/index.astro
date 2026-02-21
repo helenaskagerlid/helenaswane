@@ -19,7 +19,7 @@ const allBlogposts = await getCollection("blogPosts");
           <BlogPost
             title={blogpost.data.title}
             image={blogpost.data.image}
-            url={`/blog/${blogpost.id}`}
+            url={`/blogg/${blogpost.id}`}
             bio={String(blogpost.body)}
           />
         ))
