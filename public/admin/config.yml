@@ -23,7 +23,7 @@ auth:
 
 publish_mode: editorial_workflow
 media_folder: "src/assets"
-public_folder: "../assets"
+public_folder: "../../assets"
 media_folder_relative: true
 public_folder_relative: true
 
