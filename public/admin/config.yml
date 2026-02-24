@@ -22,8 +22,8 @@ auth:
   avatar_url_claim: avatar_url
 
 publish_mode: editorial_workflow
-media_folder: "public/assets"
-public_folder: "/assets"
+media_folder: "src/assets/"
+public_folder: "/src/assets/"
 media_folder_relative: true
 public_folder_relative: false
 
