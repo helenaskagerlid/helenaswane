@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 
 const transformativeCoaching = await getEntry(
   "transformativeCoaching",
-  "index"
+  "index",
 );
 if (!transformativeCoaching) throw new Error("Could not find entry");
 const { Content } = await render(transformativeCoaching);
@@ -56,7 +56,7 @@ const { Content } = await render(transformativeCoaching);
             alt="profile image of Helena Swane in a bright pink jacket and a big smile"
             width={400}
             height={350}
-            loading="lazy"
+            loading="eager"
             format="webp"
           />
         </div>
@@ -76,6 +76,7 @@ const { Content } = await render(transformativeCoaching);
     .tc-wrapper {
       display: flex;
       align-items: center;
+      gap: 80px;
     }
 
     .tc-heading {
@@ -88,7 +89,6 @@ const { Content } = await render(transformativeCoaching);
     .tc-subheading {
       font-weight: 500;
       margin: 0;
-      padding-top: 10px;
       font-size: 1rem;
     }
 
@@ -144,7 +144,7 @@ const { Content } = await render(transformativeCoaching);
 
     .image-wrapper {
       width: 250px;
-      height: 350px;
+      height: 470px;
     }
 
     .arch {
