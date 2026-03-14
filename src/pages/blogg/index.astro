@@ -1,9 +1,10 @@
 ---
-import { getCollection } from "astro:content";
-import BlogPost from "../../components/BlogPost.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const allBlogposts = await getCollection("blogPosts");
+import BlogPost from "../../components/BlogPost.astro";
+const res = await fetch(
+  "http://helenaswane-wordpress.local/wp-json/wp/v2/posts?_embed",
+);
+const posts = await res.json();
 ---
 
 <BaseLayout title="Helena Swane - Blogg" description="">
@@ -12,17 +13,22 @@ const allBlogposts = await getCollection("blogPosts");
       <h2 class="blog-post-gallery-title">Blogg</h2>
       <p>- Lorem ipsum delore</p>
     </div>
-
     <div class="blog-post-grid">
       {
-        allBlogposts.map((blogpost) => (
-          <BlogPost
-            title={blogpost.data.title}
-            image={blogpost.data.image}
-            url={`/blogg/${blogpost.id}`}
-            bio={String(blogpost.body)}
-          />
-        ))
+        posts.map((post: any) => {
+          const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+
+          if (!image) return null;
+
+          return (
+            <BlogPost
+              title={post.title.rendered}
+              image={image}
+              url={`/blogg/${post.slug}`}
+              bio={post.content.rendered}
+            />
+          );
+        })
       }
     </div>
   </section>

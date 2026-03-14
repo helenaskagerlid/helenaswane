@@ -1,37 +1,32 @@
 ---
-import { render } from "astro:content";
-import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
+
+const { slug } = Astro.params;
+
+let res = await fetch(
+  `http://helenaswane-wordpress.local/wp-json/wp/v2/posts?slug=${slug}`,
+);
+let [post] = await res.json();
 
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blogPosts");
+  let data = await fetch(
+    "http://helenaswane-wordpress.local/wp-json/wp/v2/posts",
+  );
+  let posts = await data.json();
 
-  return [...blogPosts].map((blogpost) => ({
-    params: { slug: blogpost.id },
-    props: { blogpost },
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+    props: { post: post },
   }));
 }
-
-const { blogpost } = Astro.props;
-const { Content } = await render(blogpost);
 ---
 
 <BaseLayout title="Blogpost">
   <div class="blog-post-content">
     <article class="blog-post">
-      <Image
-        src={blogpost.data.image}
-        loading="eager"
-        width="289"
-        height="314"
-        alt=`${blogpost.data.title}`
-        class={`blog-post-image`}
-      />
-
       <div class="blog-post-description">
-        <h2 class="blog-post-title">{blogpost.data.title}</h2>
-        <div class="blog-post-text"><Content /></div>
+        <h2 class="blog-post-title" set:html={post.title.rendered} />
+        <div class="blog-post-text" set:html={post.content.rendered} />
       </div>
     </article>
   </div>
@@ -53,27 +48,43 @@ const { Content } = await render(blogpost);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    background-color: #faf6f1;
+    width: 100%;
+    height: auto;
+  }
+
+  .blog-post-title {
+    margin: 0;
   }
 
   .blog-post-image {
-    width: 289px;
-    height: 314px;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
   }
 
   .blog-post-description {
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: star;
     padding-inline: 100px;
     width: 800px;
   }
 
+  .blog-post-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* margin: 2rem auto; */
+  }
+
   .blog-post-text :global(img) {
-    width: 100%;
     height: auto;
-    max-width: 400px;
-    display: block;
-    margin: 2rem auto;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* margin: 2rem auto; */
   }
 </style>
