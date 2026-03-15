@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
-const res = await fetch(
+import type { WordPressPost } from "../../interfaces/models";
+const allBlogPosts = await fetch(
   "http://helenaswane-wordpress.local/wp-json/wp/v2/posts?_embed",
 );
-const posts = await res.json();
+const posts = await allBlogPosts.json();
 ---
 
 <BaseLayout title="Helena Swane - Blogg" description="">
@@ -15,7 +16,7 @@ const posts = await res.json();
     </div>
     <div class="blog-post-grid">
       {
-        posts.map((post: any) => {
+        posts.map((post: WordPressPost) => {
           const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 
           if (!image) return null;

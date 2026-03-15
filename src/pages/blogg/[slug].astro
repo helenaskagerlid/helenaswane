@@ -1,32 +1,34 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { WordPressPost } from "../../interfaces/models";
 
 const { slug } = Astro.params;
 
-let res = await fetch(
+let blogPost = await fetch(
   `http://helenaswane-wordpress.local/wp-json/wp/v2/posts?slug=${slug}`,
 );
-let [post] = await res.json();
+let [post] = await blogPost.json();
 
 export async function getStaticPaths() {
-  let data = await fetch(
+  let allBlogPosts = await fetch(
     "http://helenaswane-wordpress.local/wp-json/wp/v2/posts",
   );
-  let posts = await data.json();
+  let posts = await allBlogPosts.json();
+  console.log("Vanliga posts", posts);
 
-  return posts.map((post: any) => ({
+  return posts.map((post: WordPressPost) => ({
     params: { slug: post.slug },
     props: { post: post },
   }));
 }
 ---
 
-<BaseLayout title="Blogpost">
+<BaseLayout title=`Blogginlägg: ${post.title.rendered} `>
   <div class="blog-post-content">
     <article class="blog-post">
       <div class="blog-post-description">
         <h2 class="blog-post-title" set:html={post.title.rendered} />
-        <div class="blog-post-text" set:html={post.content.rendered} />
+        <Fragment class="blog-post-text" set:html={post.content.rendered} />
       </div>
     </article>
   </div>
