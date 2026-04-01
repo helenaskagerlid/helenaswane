@@ -1,16 +1,6 @@
 ---
-import { getCollection } from "astro:content";
-import GlowingBorder from "../animations/GlowingBorder.astro";
-import { getEntry, render } from "astro:content";
 import TestimonialSlider from "./TestimonialSlider.astro";
 import { Image } from "astro:assets";
-
-const testimonial1 = await getEntry("testimonials", "testimonial1");
-const testimonial2 = await getEntry("testimonials", "testimonial2");
-const testimonial3 = await getEntry("testimonials", "testimonial3");
-
-// const allTestimonials = await getCollection("testimonials");
-// console.log(allTestimonials);
 ---
 
 <section class="testimonial-section" id="testimonials">
@@ -32,40 +22,33 @@ const testimonial3 = await getEntry("testimonials", "testimonial3");
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stop-color="#e35b7d">
+              <stop offset="0%" stop-color=" #ff3b9c">
                 <animate
                   attributeName="stop-color"
                   values="
-      #e35b7d;
-      #ef6c8f;
+      #ff3b9c;
+      #d82094;
       #f492b8;
-      #f7a3c6;
-      #fcd1e3;
-      #cc4668;
-      #e35b7d;
-      #ef6c8f;
+      #ff3b9c;
+      #d82094;
       #f492b8;
-      #f7a3c6;
-      #e35b7d
+      #ff3b9c
     "
                   dur="35s"
                   repeatCount="indefinite"></animate>
               </stop>
 
-              <stop offset="100%" stop-color="#f26fa0">
+              <stop offset="100%" stop-color=" #ff3b9c">
                 <animate
                   attributeName="stop-color"
                   values="
-      #f7a3c6;
-      #fcd1e3;
-      #e35b7d;
-      #cc4668;
-      #ef6c8f;
+      #ff3b9c;
+      #d82094;
       #f492b8;
-      #f7a3c6;
-      #cc4668;
-      #f26fa0;
-        #f7a3c6;
+      #ff3b9c;
+      #d82094;
+      #f492b8;
+      #ff3b9c
     "
                   dur="35s"
                   repeatCount="indefinite"></animate>
@@ -102,14 +85,16 @@ const testimonial3 = await getEntry("testimonials", "testimonial3");
         }
       }
 
-      :root {
+      :global(:root) {
         --gradient: linear-gradient(
           135deg,
-          #ffe5b4 0%,
-          #ffd1a4 25%,
-          #ffb07c 50%,
-          #f9a66c 75%,
-          #f6c77d 100%
+          #ff3b9c,
+          #d82094,
+          #f492b8,
+          #ff3b9c,
+          #d82094,
+          #f492b8,
+          #ff3b9c
         );
       }
 
@@ -119,8 +104,16 @@ const testimonial3 = await getEntry("testimonials", "testimonial3");
         align-items: center;
         width: 100vw;
         height: 100vh;
-        background-image: var(--gradient);
-        background-size: 400%;
+        background: linear-gradient(
+          135deg,
+          #ff3b9c,
+          #d82094,
+          #f492b8,
+          #ff3b9c,
+          #d82094,
+          #f492b8,
+          #ff3b9c
+        );
         animation: bg-animation 25s infinite alternate;
       }
 
@@ -223,14 +216,14 @@ const testimonial3 = await getEntry("testimonials", "testimonial3");
         position: absolute;
         height: 580px;
         width: 570px;
-        top: -35.5%;
+        top: -30.5%;
         left: -42%;
       }
 
       .testimonial-img {
         position: absolute;
         left: -10%;
-        top: -3%;
+        top: 3%;
         height: 340px;
         width: 330px;
         border-radius: 50%;
