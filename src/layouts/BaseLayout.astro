@@ -31,7 +31,9 @@ const { title, description } = Astro.props;
   <body>
     <Header />
     <main>
-      <slot />
+      <div class="data-scroll-container">
+        <slot />
+      </div>
     </main>
   </body>
   <Footer />
@@ -85,7 +87,14 @@ const { title, description } = Astro.props;
     height: 100%;
     padding: 0;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-scroll-container] {
+    will-change: transform;
   }
 
   main {
