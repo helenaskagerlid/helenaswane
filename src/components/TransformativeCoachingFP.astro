@@ -4,12 +4,16 @@ import ArchGlowingBorder from "../animations/ArchGlowingBorder.astro";
 import StarAnimation from "../animations/StarAnimation.astro";
 import { Image } from "astro:assets";
 
-const transformativeCoaching = await getEntry(
-  "transformativeCoaching",
-  "index",
-);
-if (!transformativeCoaching) throw new Error("Could not find entry");
-const { Content } = await render(transformativeCoaching);
+export async function getPage(slug: string) {
+  const res = await fetch(
+    `http://helenaswane-wordpress.local/wp-json/wp/v2/pages?slug=${slug}`,
+  );
+
+  const pages = await res.json();
+  return pages[0];
+}
+
+const page = await getPage("transformativ-coaching");
 ---
 
 <section class="transformative-coaching" id="aboutCoachning">
@@ -17,29 +21,11 @@ const { Content } = await render(transformativeCoaching);
     <div class="text-wrapper">
       <div class="star-wrapper">
         <StarAnimation />
-        <h2 class="tc-heading">{transformativeCoaching.data.title}</h2>
+        <h2 class="tc-heading">{page.title.rendered}</h2>
       </div>
-      <h3 class="tc-subheading">{transformativeCoaching.data.subtitle}</h3>
+      <h3 class="tc-subheading"></h3>
 
-      <div class="tc-text">
-        <p>
-          När du upplever att du sitter fast och vill bli fri från det som
-          hindrar dig.
-        </p>
-        <p>
-          Här blir du mjukt guidad till kontakt med ditt undermedvetna där du
-          kan transformera det som längtar efter förändring.
-        </p>
-        <p>
-          Många upplever att dessa sessioner ger djupgående förändring utan att
-          behöva gräva djupt i det tunga, att processen kan kännas förvånansvärt
-          lättsam och enkel.
-        </p>
-        <p class="italic-text">
-          Du behöver inte bli någon som du inte är, det här är en inbjudan till
-          att få komma hem till dig själv.
-        </p>
-      </div>
+      <div class="tc-text" set:html={page.content.rendered} />
       <a href="/bokasession" class="book-link"
         ><button aria-label="book a session" class="book-btn"
           >Boka session</button
@@ -69,7 +55,7 @@ const { Content } = await render(transformativeCoaching);
       width: 100vw;
       background-color: #faf6f1;
       /* background: linear-gradient(to bottom, #faf6f1 0%, #b86b95 100%); */
-      padding-top: 100px;
+      padding-top: 120px;
       padding-bottom: 30px;
     }
 
@@ -96,10 +82,13 @@ const { Content } = await render(transformativeCoaching);
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 12px;
     }
 
-    .tc-text p {
+    .tc-text :global(h4) {
+      font-weight: 500;
+      margin: 0;
+    }
+    .tc-text :global(p) {
       margin: 0;
     }
 
@@ -143,8 +132,8 @@ const { Content } = await render(transformativeCoaching);
     }
 
     .image-wrapper {
-      width: 250px;
-      height: 470px;
+      flex: 0 0 315px;
+      transform: translateY(-34px);
     }
 
     .arch {
@@ -159,7 +148,6 @@ const { Content } = await render(transformativeCoaching);
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
       display: block;
     }
 
