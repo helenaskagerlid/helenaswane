@@ -5,6 +5,7 @@ import TransformativeCoachingFP from "../components/TransformativeCoachingFP.ast
 import Testimonials from "../components/Testimonials.astro";
 import SignUpSection from "../components/SignUpSection.astro";
 import SectionDivider from "../components/SectionDivider.astro";
+import TestComponent from "../components/TestComponent.astro";
 ---
 
 <BaseLayout
@@ -17,3 +18,10 @@ import SectionDivider from "../components/SectionDivider.astro";
   <Testimonials />
   <SignUpSection />
 </BaseLayout>
+
+<script type="module">
+  import { initScroll } from "/src/scripts/scroll.ts";
+  window.addEventListener("load", () => {
+    initScroll();
+  });
+</script>
